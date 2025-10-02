@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Motors - Luxury Car Showcase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">ELITE MOTORS</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Model -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Experience Automotive Excellence</h1>
+            <p class="hero-subtitle">Discover the world's most prestigious vehicles</p>
+            <button class="cta-button">Explore Collection</button>
+        </div>
+        <div id="hero-canvas"></div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="collection">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <p class="section-subtitle">Explore our curated collection of the world's most exceptional vehicles. From raw power to sustainable luxury, find the perfect machine that defines you.</p>
+            
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="sports">Sports</button>
+                <button class="filter-btn" data-category="luxury">Luxury</button>
+                <button class="filter-btn" data-category="electric">Electric</button>
+                <button class="filter-btn" data-category="suv">SUV</button>
+            </div>
+
+            <!-- Car Grid -->
+            <div class="car-grid" id="carGrid">
+                <!-- Cars will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Elite Motors</h2>
+                    <p>For over two decades, Elite Motors has been the premier destination for automotive connoisseurs seeking the extraordinary. We specialize in curating an exclusive collection of the world's finest vehicles.</p>
+                    <p>Our commitment to excellence extends beyond the showroom. Every vehicle in our collection is meticulously inspected, authenticated, and prepared to deliver the ultimate driving experience.</p>
+                </div>
+                <div class="about-3d">
+                    <div id="about-canvas"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Premium Selection</h3>
+                    <p>Handpicked vehicles from the world's most prestigious manufacturers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Certified Authenticity</h3>
+                    <p>Every vehicle undergoes rigorous inspection and verification</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Exclusive Access</h3>
+                    <p>First access to rare and limited edition vehicles</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>White Glove Service</h3>
+                    <p>Personalized concierge service for every client</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Have a question? We'd love to hear from you.</p>
+            
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ELITE MOTORS</h3>
+                    <p>Redefining automotive excellence since 2003</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#collection">Collection</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@elitemotors.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elite Motors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
